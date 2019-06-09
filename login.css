@@ -1,0 +1,108 @@
+body {
+	background: url(bg.jpg)  no-repeat center ;
+	background-size: cover;
+	position: relative;
+}
+body:before {/*利用before伪元素设置内容半透明背景层*/
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255,255,255,.5);
+	z-index: -1;/*更改堆叠顺序，不设置before会覆盖页面*/
+}
+main header .userinfo {
+	float: right;
+	font-size: 35px;
+	margin-right: 100px;
+	margin-top: 20px;
+}
+main header .userinfo:hover {
+	color: #666;
+}
+/*main .flip-model {
+	display: none;
+}*/
+main .login-model,
+main .register-model {
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	background-color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+/*sa*/
+main .close {
+	position: absolute;
+	right: 8px;
+	top: 8px;
+}
+main .switchTab {
+	text-align: center;
+	font-size: 18px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.switchTab a {
+	display: inline-block;
+	margin: 0 5px;
+}
+.switchTab a.active {
+	border-bottom: 2px solid #444;
+}
+.login-model .content,
+.register-model .content {
+	margin-top: 20px;
+	margin-right: 50px;
+	margin-left: 50px;
+	margin-bottom: 50px;
+}
+.content .errmsg {
+	font-size: 16px;
+	color: #FBE080; 
+}
+.login-model .content input,
+.register-model .content input {
+	line-height: 30px;
+	height: 30px;
+	width: 290px;
+	padding-left: 25px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.content .iptwrapper {
+	position: relative;
+	margin-bottom: 10px;
+}
+.content .iptwrapper i {
+	position: absolute;
+	left: 8px;
+	top: 8px;
+}
+.login-model .content .logbtn,
+.register-model .content .regbtn {
+	/*display: inline-block;*/
+	width: 100px;
+	font-size: 18px;
+	line-height: 1.5;
+	text-align: center;
+	padding: 0;
+}
+.flip-model.login .login-model,/*正面*/
+.flip-model.register .register-model
+ {
+	transform: translate(-50%,-50%) rotateY(0deg);
+	backface-visibility: hidden;
+	transition: all 1s;
+}
+.flip-model.login .register-model,
+.flip-model.register .login-model {
+	transform: translate(-50%,-50%) rotateY(180deg);
+	backface-visibility: hidden;
+	transition: all 1s;
+}
